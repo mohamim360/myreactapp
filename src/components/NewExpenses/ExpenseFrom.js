@@ -25,7 +25,8 @@ const ExpenseFrom = (props) => {
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
-    console.log(expenseData);
+    props.onSaveData(expenseData);
+
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
@@ -57,7 +58,7 @@ const ExpenseFrom = (props) => {
             max="2022-12-31" value={enteredDate}
             onInput={dateChangeHandler}
           />
-           <p>Input value: {enteredTitle}</p>
+           {/* <p>Input value: {enteredTitle}</p> */}
   
         </div>
       </div>

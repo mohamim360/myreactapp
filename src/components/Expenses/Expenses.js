@@ -4,6 +4,8 @@ import ExpenseFilter from "./ExpenseFilter";
 import React, { useState } from "react";
 import ExpenseList from "./ExpenseList";
 
+import ExpenseChart from "./ExpenseChart";
+
 //point 1
 // let changeContent = <p>NO EXPENSE FOUND</p>;
 
@@ -30,12 +32,13 @@ const Expenses = (props) => {
   });
 
   return (
-    <Card className="expenses">
+    <li>
+       <Card className="expenses">
       <ExpenseFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      
+      <ExpenseChart dataOfYear={listYear}/>
       {/* point 1 */}
       {/* {changeContent}  */}
 
@@ -48,7 +51,7 @@ const Expenses = (props) => {
             date={expense.date}
           />
         ))} */}
-        
+
 
       {/* {listYear.length === 0 ? (
         <p>NO EXPENSE FOUND</p>
@@ -65,6 +68,8 @@ const Expenses = (props) => {
 
       <ExpenseList items={listYear} />
     </Card>
+    </li>
+    
   );
 };
 
